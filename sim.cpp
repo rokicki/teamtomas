@@ -13,7 +13,11 @@ struct simdat {    // by intersection
 } ;
 vector<simdat> simdats ;
 vector<int> cars ;
+int totscore = 0 ;
 int runsim() {
+   simdats.clear() ;
+   cars.clear() ;
+   streetq.clear() ;
    simdats.resize(I) ;
    streetq.resize(S) ;
    for (int i=0; i<(int)paths.size(); i++) {
@@ -28,6 +32,7 @@ int runsim() {
          continue ;
       simdats[i].greenleft = intersections[i].sched[0].dur ;
    }
+   totscore = 0 ;
    for (int t=0; t<D; t++) {
       if (verbose)
          cout << "Time " << t << endl ;
@@ -47,8 +52,13 @@ int runsim() {
             auto str = paths[car].itin[cars[car]] ;
             int arr = t + str->len ;
             if (cars[car] + 1 == paths[car].itin.size()) { // last street!
+               int thisscore = 0 ;
+               if (arr <= D) {
+                  thisscore += F + D - arr ;
+               }
                if (verbose)
-                  cout << "Car " << car << " arrives at " << arr << endl ;
+                  cout << "Car " << car << " arrives at " << arr << " score " << thisscore << endl ;
+               totscore += thisscore ;
             } else {
                if (verbose)
                   cout << "   Will arrive at next intersection at " << arr << endl ;
@@ -64,5 +74,7 @@ int runsim() {
          }
       }
    }
-   return 1 ;
+   if (verbose)
+      cout << "Final score is " << totscore << endl ;
+   return totscore ;
 }
