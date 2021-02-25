@@ -8,6 +8,7 @@ int main(int argc, char *argv[]) {
       fstream is2(argv[2]) ;
       readsched(is2) ;
       is2.close() ;
+      runsim() ;
    }
 }
 

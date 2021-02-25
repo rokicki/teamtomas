@@ -30,3 +30,4 @@ extern map<string, streetp> atlas ;
 extern int readdata(istream &is) ;
 extern int readsched(istream &is) ;
 extern void error(const char *s) ;
+extern int runsim() ;
