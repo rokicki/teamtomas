@@ -22,7 +22,7 @@ int runsim() {
    streetq.resize(S) ;
    for (int i=0; i<(int)paths.size(); i++) {
       auto &p = paths[i] ;
-      cout << "Queueing at " << p.itin[0]->id << endl ;
+//    cout << "Queueing at " << p.itin[0]->id << " car " << i << endl ;
       streetq[p.itin[0]->id].push({i, 0}) ;
    }
    cars.resize(V) ;
@@ -41,7 +41,8 @@ int runsim() {
          if (inter.in.size() == 0)
             continue ;
          // what street is green?
-         int green = inter.in[simdats[i].sp]->id ;
+         int green = inter.sched[simdats[i].sp].str->id ;
+//  cout << "Intersection " << i << " green " << green << " " << streets[green].name << endl ;
          // does a car pass through now?
          if (streetq[green].size() > 0 && streetq[green].front().t <= t) {
             int car = streetq[green].front().id ;
