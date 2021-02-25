@@ -1,13 +1,5 @@
-#include <iostream>
-#include <string>
-#include <vector>
-using namespace std ;
+#include "world.h"
 int D, I, S, V, F ;
-struct street {
-   int b, e, len ;
-   string name ;
-} ;
-using path = vector<string> ;
 vector<street> streets ;
 vector<path> paths ;
 int main() {
