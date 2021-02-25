@@ -13,6 +13,10 @@ struct path {
    vector<streetp> itin ;
    int len ;
 } ;
+struct intersection {
+   vector<streetp> in, out ;
+} ;
+extern vector<intersection> intersections ;
 extern vector<street> streets ;
 extern vector<path> paths ;
 extern int readdata(istream &is) ;
