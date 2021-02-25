@@ -7,6 +7,7 @@ struct street {
    int b, e, len ;
    string name ;
 } ;
-using path = vector<string> ;
+using streetp = struct street *;
+using path = vector<streetp> ;
 extern vector<street> streets ;
 extern vector<path> paths ;
