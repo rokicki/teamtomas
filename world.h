@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <istream>
 #include <vector>
 using namespace std ;
 extern int D, I, S, V, F ;
@@ -11,3 +12,4 @@ using streetp = struct street *;
 using path = vector<streetp> ;
 extern vector<street> streets ;
 extern vector<path> paths ;
+extern int readdata(istream &is) ;

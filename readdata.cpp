@@ -3,23 +3,23 @@
 int D, I, S, V, F ;
 vector<street> streets ;
 vector<path> paths ;
-int main() {
+int readdata(istream &is) {
    map<string, streetp> atlas ;
-   cin >> D >> I >> S >> V >> F ;
+   is >> D >> I >> S >> V >> F ;
    streets.resize(S) ;
    for (auto &s : streets)
-      cin >> s.b >> s.e >> s.name >> s.len ;
+      is >> s.b >> s.e >> s.name >> s.len ;
    for (auto &s : streets)
       atlas[s.name] = &s ;
    paths.resize(V) ;
    for (auto &v : paths) {
       int sz ;
       string s ;
-      cin >> sz ;
+      is >> sz ;
       for (int i=0; i<sz; i++) {
-         cin >> s ;
+         is >> s ;
          v.push_back(atlas[s]) ;
       }
    }
-   cout << "Parsed!" << endl ;
+   return 1 ;
 }
