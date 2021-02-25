@@ -11,6 +11,7 @@ int readdata(istream &is) {
    int sc = 0 ;
    for (auto &s : streets) {
       is >> s.b >> s.e >> s.name >> s.len ;
+      s.uses = 0 ;
       s.id = sc++ ;
    }
    for (auto &s : streets)
@@ -34,6 +35,10 @@ int readdata(istream &is) {
       v.len = sum ;
       if (verbose)
          cout << "Path has len " << v.len << " slop " << D-v.len << endl ;
+      if (v.len <= D) {
+         for (int i=1; i<sz; i++)
+            v.itin[i]->uses++ ;
+      }
    }
    return 1 ;
 }

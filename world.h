@@ -6,7 +6,7 @@
 using namespace std ;
 extern int D, I, S, V, F ;
 struct street {
-   int b, e, len, id ;
+   int b, e, len, id, uses ;
    string name ;
 } ;
 using streetp = struct street *;
