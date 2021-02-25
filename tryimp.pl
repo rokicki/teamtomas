@@ -1,7 +1,7 @@
 my $in = shift ;
 my $name = shift || die "Need name" ;
 while (1) {
-   system("./genrand $in > t$$.sched") ;
+   system("./main2 $in > t$$.sched") ;
    my $v = `./main $in t$$.sched` ;
    chomp $v ;
    $v =~ s/Final score // ;

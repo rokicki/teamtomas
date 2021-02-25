@@ -2,6 +2,7 @@
  *   Read a schedule into the intersections object.
  */
 #include "world.h"
+#include <math.h>
 #include <set>
 void writesched() {
    int nsched = 0 ;
@@ -18,12 +19,15 @@ void writesched() {
          cnts[s.str->id] += 1 ;
       cout << i << endl ;
       cout << cnts.size() << endl ;
-      set<int> seen ;
-      for (auto &s : inter.sched) {
-         if (seen.find(s.str->id) != seen.end())
-            continue ;
-         seen.insert(s.str->id) ;
-         cout << s.str->name << " " << cnts[s.str->id] << endl ;
+      vector<int> p ;
+      for (auto &s : cnts)
+         p.push_back(s.first) ;
+      for (int j=0; j<(int)p.size(); j++) {
+         int k = (int)(p.size()*drand48()) ;
+         swap(p[k], p[j]) ;
+      }
+      for (auto &pp : p) {
+         cout << streets[pp].name << " " << (int)(1+(sqrt(cnts[pp]))) << endl ;
       }
    }
 }
