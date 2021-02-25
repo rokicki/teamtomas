@@ -9,7 +9,12 @@ struct street {
    string name ;
 } ;
 using streetp = struct street *;
-using path = vector<streetp> ;
+struct path {
+   vector<streetp> itin ;
+   int len ;
+} ;
 extern vector<street> streets ;
 extern vector<path> paths ;
 extern int readdata(istream &is) ;
+extern int verbose ;
+extern void error(const char *s) ;

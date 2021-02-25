@@ -1,6 +1,7 @@
 #include "world.h"
 #include <map>
 int D, I, S, V, F ;
+int verbose = 1 ;
 vector<street> streets ;
 vector<path> paths ;
 int readdata(istream &is) {
@@ -16,10 +17,15 @@ int readdata(istream &is) {
       int sz ;
       string s ;
       is >> sz ;
+      int sum = 0 ;
       for (int i=0; i<sz; i++) {
          is >> s ;
-         v.push_back(atlas[s]) ;
+         v.itin.push_back(atlas[s]) ;
+         sum += atlas[s]->len ;
       }
+      v.len = sum ;
+      if (verbose)
+         cout << "Path has len " << v.len << endl ;
    }
    return 1 ;
 }
