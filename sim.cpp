@@ -41,6 +41,8 @@ int runsim() {
          if (inter.in.size() == 0)
             continue ;
          // what street is green?
+         if (inter.sched.size() == 0)
+            continue ;
          int green = inter.sched[simdats[i].sp].str->id ;
 //  cout << "Intersection " << i << " green " << green << " " << streets[green].name << endl ;
          // does a car pass through now?
